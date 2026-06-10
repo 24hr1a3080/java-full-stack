@@ -1,0 +1,59 @@
+
+.friends{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 150px 150px 250px;
+}
+p1{
+    grid-column: 1 / 2;
+    background-color: peachpuff;
+}
+p2{
+    grid-column: 1 / 2;
+    background-color: lightpink;
+}
+p3{
+    grid-column: 1 / 2;
+    background-color: lightsteelblue;
+}
+p4{
+    grid-column: 1 / 2;
+    background-color: skyblue;
+}
+p5{
+    grid-column: 1 / 2;
+    background-color:rosybrown;
+}
+p6{
+    grid-column: 1 / 2;
+    background-color: limegreen;
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1cm;
+}
+.item1{
+    background-color: lightblue;
+    padding: 20px;
+}
+.item2{
+    background-color: lightgreen;
+    padding: 20px;
+}
+.item3{
+    background-color: lightyellow;
+    padding: 20px;
+}
+.item4{
+    background-color: lightcoral;
+    padding: 20px;
+}
+.item5{
+    background-color: lightcyan;
+    padding: 20px;
+}
+.item6{
+    background-color: lightgray;
+    padding: 20px;
+}

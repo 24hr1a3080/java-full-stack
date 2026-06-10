@@ -1,0 +1,16 @@
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+ul{
+    display: flex;
+    list-style: 1cm;
+}
+.meat{
+    display: flex;
+    flex-direction: column;
+
+}
