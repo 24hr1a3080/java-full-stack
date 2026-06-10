@@ -11,32 +11,654 @@
     <p>hello nice to meet you my name is Anil ia also 3 rd year AI&DS</p>
     <p>i am intrest in the java languages</p>
 <h2>languages i know</h2>
-<ul>
+    <meta name="description" content="Anil's portfolio - B.Tech AIDS student at Mother Theresa College and aspiring full stack developer.">
+    <title>Anil | Full Stack Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #08111f;
+            --bg-soft: #111b30;
+            --card: rgba(15, 24, 42, 0.88);
+            --card-strong: #14213a;
+            --text: #f4f7fb;
+            --muted: #b8c3d9;
+            --accent: #4dd0e1;
+            --accent-2: #7c9cff;
+            --border: rgba(255, 255, 255, 0.08);
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Manrope", sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(77, 208, 225, 0.16), transparent 32%),
+                radial-gradient(circle at top right, rgba(124, 156, 255, 0.18), transparent 28%),
+                linear-gradient(160deg, var(--bg) 0%, #0b1425 45%, #050914 100%);
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 56px 56px;
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), transparent 88%);
+        }
+
+        .page {
+            width: min(1120px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 28px 0 56px;
+        }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .brand-mark {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: #06111f;
+            font-family: "Space Grotesk", sans-serif;
+            font-weight: 700;
+            box-shadow: var(--shadow);
+        }
+
+        .brand-text strong {
+            display: block;
+            font-family: "Space Grotesk", sans-serif;
+            letter-spacing: 0.02em;
+        }
+
+        .brand-text span {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: flex-end;
+        }
+
+        .nav a {
+            color: var(--muted);
+            text-decoration: none;
+            padding: 10px 14px;
+            border: 1px solid transparent;
+            border-radius: 999px;
+            transition: 0.2s ease;
+        }
+
+        .nav a:hover {
+            color: var(--text);
+            border-color: var(--border);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.25fr 0.75fr;
+            gap: 20px;
+            align-items: stretch;
+            margin-bottom: 20px;
+        }
+
+        .panel {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(16px);
+        }
+
+        .hero-main {
+            padding: 36px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-main::after {
+            content: "";
+            position: absolute;
+            right: -60px;
+            top: -60px;
+            width: 220px;
+            height: 220px;
+            background: radial-gradient(circle, rgba(77, 208, 225, 0.18), transparent 68%);
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--accent);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+        }
+
+        h1, h2, h3 {
+            font-family: "Space Grotesk", sans-serif;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: clamp(2.4rem, 5vw, 4.6rem);
+            line-height: 0.98;
+            margin: 18px 0 14px;
+            max-width: 10ch;
+        }
+
+        .hero-copy {
+            max-width: 62ch;
+            color: var(--muted);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin: 0 0 24px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            border-radius: 999px;
+            padding: 13px 18px;
+            font-weight: 700;
+            transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .button.primary {
+            color: #06111f;
+            background: linear-gradient(135deg, var(--accent), #9de7ef);
+        }
+
+        .button.secondary {
+            color: var(--text);
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .stat {
+            padding: 16px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 1.35rem;
+            font-family: "Space Grotesk", sans-serif;
+        }
+
+        .stat span {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .hero-side {
+            padding: 28px;
+            display: grid;
+            gap: 16px;
+            align-content: start;
+        }
+
+        .profile-card {
+            padding: 22px;
+            border-radius: 24px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .profile-name {
+            font-size: 1.35rem;
+            margin-bottom: 6px;
+        }
+
+        .profile-role {
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .profile-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 12px;
+        }
+
+        .profile-list li {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--muted);
+        }
+
+        .profile-list strong {
+            color: var(--text);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .section {
+            padding: 28px;
+        }
+
+        .about {
+            grid-column: span 7;
+        }
+
+        .skills {
+            grid-column: span 5;
+        }
+
+        .projects {
+            grid-column: span 7;
+        }
+
+        .education {
+            grid-column: span 5;
+        }
+
+        .contact {
+            grid-column: 1 / -1;
+        }
+
+        .section h2 {
+            font-size: 1.65rem;
+            margin-bottom: 14px;
+        }
+
+        .section p {
+            color: var(--muted);
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .tag-list {
+            list-style: none;
+            padding: 0;
+            margin: 18px 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag-list li {
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .project-list {
+            display: grid;
+            gap: 14px;
+            margin-top: 16px;
+        }
+
+        .project {
+            padding: 18px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .project h3 {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .project span {
+            display: block;
+            color: var(--accent);
+            font-size: 0.92rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .timeline {
+            display: grid;
+            gap: 14px;
+            margin-top: 16px;
+        }
+
+        .timeline-item {
+            padding: 18px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .timeline-item strong {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        .contact-card {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .contact-item {
+            padding: 18px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .contact-item span {
+            display: block;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.78rem;
+        }
+
+        .contact-item a,
+        .contact-item p {
+            color: var(--text);
+            text-decoration: none;
+            margin: 0;
+            word-break: break-word;
+        }
+
+        .footer-note {
+            margin-top: 18px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 960px) {
+            .hero,
+            .grid,
+            .contact-card {
+                grid-template-columns: 1fr;
+            }
+
+            .about,
+            .skills,
+            .projects,
+            .education,
+            .contact {
+                grid-column: auto;
+            }
+
+            .topbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav {
+                justify-content: flex-start;
+            }
+
+            .hero-main,
+            .section,
+            .hero-side {
+                padding: 24px;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .page {
+                width: min(100% - 20px, 1120px);
+                padding-top: 18px;
+            }
+
+            h1 {
+                font-size: 2.3rem;
+            }
+
+            .nav a,
+            .button {
+                width: 100%;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
      <li>java</li>
-     <li>c+</li>
-     <li>pythan</li>
-</ul>
-<p>
-    <table>
-        <tr>
-            <th>semester</th>
-            <th>subject</th>
-            <th>marks</th>
-            <th>grade</th>
-        </tr>
-        <tr>
-            <td>3rd</td>
-            <td>smds</td>
-            <td>90</td>
-            <td><b>A</b></td>
-        </tr>
-        <tr>
-            <td>3rd</td>
-            <td>java</td>
-            <td>80</td>
-            <td><b>B</b></td>
-        </tr>
-    </table>
-</p>
-</body>
-</html>
+<body>
+    <div class="page">
+        <header class="topbar">
+            <a class="brand" href="#home" aria-label="Anil portfolio home">
+                <div class="brand-mark">A</div>
+                <div class="brand-text">
+                    <strong>Anil</strong>
+                    <span>B.Tech AIDS | Full Stack Developer</span>
+                </div>
+            </a>
+            <nav class="nav" aria-label="Primary">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <main id="home">
+            <section class="hero">
+                <article class="panel hero-main">
+                    <span class="eyebrow">Aspiring Full Stack Developer</span>
+                    <h1>Hi, I'm Anil.</h1>
+                    <p class="hero-copy">
+                        I am a B.Tech AIDS student at Mother Theresa College with a strong interest in building modern, responsive web applications.
+                        I enjoy turning ideas into clean user interfaces and practical backend solutions using Java, Python, and web technologies.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="button primary" href="#projects">View Projects</a>
+                        <a class="button secondary" href="#contact">Contact Me</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <strong>3rd Year</strong>
+                            <span>B.Tech AIDS student</span>
+                        </div>
+                        <div class="stat">
+                            <strong>Full Stack</strong>
+                            <span>Frontend + Backend focus</span>
+                        </div>
+                        <div class="stat">
+                            <strong>Problem Solver</strong>
+                            <span>Learning by building</span>
+                        </div>
+                    </div>
+                </article>
+
+                <aside class="panel hero-side">
+                    <div class="profile-card">
+                        <div class="profile-name">Anil</div>
+                        <div class="profile-role">B.Tech AIDS | Mother Theresa College</div>
+                        <ul class="profile-list">
+                            <li><strong>Focus</strong><span>Full Stack Development</span></li>
+                            <li><strong>Languages</strong><span>Java, Python, C++</span></li>
+                            <li><strong>Interests</strong><span>UI, APIs, Databases</span></li>
+                            <li><strong>Goal</strong><span>Build scalable web apps</span></li>
+                        </ul>
+                    </div>
+                </aside>
+            </section>
+
+            <section class="grid">
+                <article id="about" class="panel section about">
+                    <h2>About Me</h2>
+                    <p>
+                        I am a motivated and curious student who enjoys creating web experiences that are simple, useful, and visually clear.
+                        My goal is to grow into a skilled full stack developer by strengthening my frontend, backend, and database knowledge.
+                    </p>
+                    <ul class="tag-list" aria-label="About highlights">
+                        <li>Responsive Design</li>
+                        <li>API Integration</li>
+                        <li>Database Basics</li>
+                        <li>Clean UI</li>
+                    </ul>
+                </article>
+
+                <article id="skills" class="panel section skills">
+                    <h2>Skills</h2>
+                    <p>
+                        Here are the technologies and areas I am currently building confidence in.
+                    </p>
+                    <ul class="tag-list" aria-label="Skills list">
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>JavaScript</li>
+                        <li>Java</li>
+                        <li>Python</li>
+                        <li>C++</li>
+                        <li>MySQL</li>
+                        <li>Git & GitHub</li>
+                    </ul>
+                </article>
+
+                <article id="projects" class="panel section projects">
+                    <h2>Projects</h2>
+                    <p>
+                        Sample projects that reflect my interest in full stack development.
+                    </p>
+                    <div class="project-list">
+                        <div class="project">
+                            <span>Project 01</span>
+                            <h3>Portfolio Website</h3>
+                            <p>A personal portfolio site designed to present my skills, education, and contact details in a clean and modern layout.</p>
+                        </div>
+                        <div class="project">
+                            <span>Project 02</span>
+                            <h3>Student Information App</h3>
+                            <p>A simple web app idea for managing student details, marks, and records with easy navigation and readable layouts.</p>
+                        </div>
+                        <div class="project">
+                            <span>Project 03</span>
+                            <h3>To-Do / Task Manager</h3>
+                            <p>A productivity app concept focused on task tracking, form handling, and a responsive user interface.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article id="education" class="panel section education">
+                    <h2>Education</h2>
+                    <p>
+                        My academic background and learning path.
+                    </p>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <strong>B.Tech in AIDS</strong>
+                            <p>Mother Theresa College</p>
+                            <p>Currently in 3rd year, focused on software development and problem solving.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <strong>Learning Path</strong>
+                            <p>Frontend development, backend fundamentals, and data structures.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article id="contact" class="panel section contact">
+                    <h2>Contact</h2>
+                    <p>
+                        Open to internship opportunities, project collaborations, and learning-based development work.
+                    </p>
+                    <div class="contact-card">
+                        <div class="contact-item">
+                            <span>Name</span>
+                            <p>Anil</p>
+                        </div>
+                        <div class="contact-item">
+                            <span>College</span>
+                            <p>Mother Theresa College</p>
+                        </div>
+                        <div class="contact-item">
+                            <span>Email</span>
+                            <a href="mailto:anil@example.com">anil@example.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>Location</span>
+                            <p>Available for remote and local opportunities</p>
+                        </div>
+                    </div>
+                    <p class="footer-note">
+                        Replace the sample email and location with your real details if you want to publish this portfolio.
+                    </p>
+                </article>
+            </section>
+        </main>
+    </div>
