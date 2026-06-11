@@ -7,10 +7,6 @@
 
 </head>
 <body> 
-    <h1>self intro</h1>
-    <p>hello nice to meet you my name is Anil i am studying 3 rd year AI&DS</p>
-    <p>i am interested in the java languages</p>
-<h2>i know some languages</h2>
     <meta name="description" content="Anil's portfolio - B.Tech AIDS student at Mother Theresa College and aspiring full stack developer.">
     <title>Anil | Full Stack Developer Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,16 +14,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #08111f;
-            --bg-soft: #111b30;
-            --card: rgba(15, 24, 42, 0.88);
-            --card-strong: #14213a;
-            --text: #f4f7fb;
-            --muted: #b8c3d9;
-            --accent: #4dd0e1;
-            --accent-2: #7c9cff;
-            --border: rgba(255, 255, 255, 0.08);
-            --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+            --bg: #f5efe6;
+            --bg-soft: #efe4d4;
+            --card: rgba(255, 252, 247, 0.82);
+            --card-strong: #f2e5d3;
+            --text: #221b16;
+            --muted: #65584e;
+            --accent: #d46a3f;
+            --accent-2: #247c8a;
+            --accent-3: #4a8f6b;
+            --accent-4: #e1aa43;
+            --border: rgba(74, 58, 46, 0.12);
+            --shadow: 0 24px 64px rgba(69, 47, 29, 0.12);
         }
 
         * {
@@ -43,10 +41,154 @@
             font-family: "Manrope", sans-serif;
             color: var(--text);
             background:
-                radial-gradient(circle at top left, rgba(77, 208, 225, 0.16), transparent 32%),
-                radial-gradient(circle at top right, rgba(124, 156, 255, 0.18), transparent 28%),
-                linear-gradient(160deg, var(--bg) 0%, #0b1425 45%, #050914 100%);
+                radial-gradient(circle at top left, rgba(212, 106, 63, 0.22), transparent 28%),
+                radial-gradient(circle at top right, rgba(36, 124, 138, 0.18), transparent 26%),
+                radial-gradient(circle at bottom left, rgba(225, 170, 67, 0.18), transparent 24%),
+                radial-gradient(circle at bottom right, rgba(74, 143, 107, 0.18), transparent 25%),
+                linear-gradient(160deg, var(--bg) 0%, #fbf6ee 55%, #efe4d4 100%);
             min-height: 100vh;
+            overflow-x: hidden;
+            perspective: 1500px;
+            transform-style: preserve-3d;
+        }
+
+        .background-3d {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .bg-orb,
+        .bg-ring,
+        .bg-grid {
+            position: absolute;
+            border-radius: 50%;
+            will-change: transform, opacity;
+        }
+
+        .bg-orb {
+            filter: blur(16px);
+            opacity: 0.55;
+            animation: orb-float 14s ease-in-out infinite;
+        }
+
+        .bg-orb.one {
+            width: 260px;
+            height: 260px;
+            left: -40px;
+            top: 10%;
+            background: radial-gradient(circle, rgba(212, 106, 63, 0.42), rgba(212, 106, 63, 0.03) 70%, transparent 72%);
+            animation-duration: 16s;
+            transform: translateZ(-120px) rotateX(58deg) rotateY(-24deg);
+        }
+
+        .bg-orb.two {
+            width: 220px;
+            height: 220px;
+            right: 8%;
+            top: 20%;
+            background: radial-gradient(circle, rgba(36, 124, 138, 0.35), rgba(36, 124, 138, 0.03) 68%, transparent 70%);
+            animation-duration: 18s;
+            animation-delay: -4s;
+            transform: translateZ(160px) rotateX(66deg) rotateY(22deg);
+        }
+
+        .bg-orb.three {
+            width: 300px;
+            height: 300px;
+            left: 28%;
+            bottom: -90px;
+            background: radial-gradient(circle, rgba(74, 143, 107, 0.32), rgba(74, 143, 107, 0.03) 72%, transparent 74%);
+            animation-duration: 20s;
+            animation-delay: -9s;
+            transform: translateZ(40px) rotateX(72deg) rotateY(-10deg);
+        }
+
+        .bg-ring {
+            border: 1px solid rgba(71, 54, 42, 0.14);
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.38), transparent 64%);
+            box-shadow: 0 0 40px rgba(212, 106, 63, 0.08), inset 0 0 30px rgba(74, 58, 46, 0.05);
+        }
+
+        .bg-ring.one {
+            width: 460px;
+            height: 460px;
+            left: 50%;
+            top: 10%;
+            margin-left: -230px;
+            animation: ring-spin 24s linear infinite;
+            transform: translateZ(-220px) rotateX(72deg) rotateY(18deg);
+        }
+
+        .bg-ring.two {
+            width: 320px;
+            height: 320px;
+            right: -80px;
+            bottom: 10%;
+            animation: ring-spin 18s linear infinite reverse;
+            transform: translateZ(120px) rotateX(80deg) rotateY(-18deg);
+        }
+
+        .bg-grid {
+            width: 130%;
+            height: 130%;
+            left: -15%;
+            top: -12%;
+            border-radius: 36px;
+            background-image:
+                linear-gradient(rgba(87, 70, 53, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(87, 70, 53, 0.08) 1px, transparent 1px);
+            background-size: 88px 88px;
+            transform: translateZ(-340px) rotateX(74deg) rotateY(-14deg) rotateZ(-8deg);
+            opacity: 0.20;
+            animation: grid-drift 28s linear infinite;
+        }
+
+        @keyframes orb-float {
+            0%, 100% {
+                transform: translate3d(0, 0, 0) rotateX(60deg) rotateY(-20deg) scale(1);
+            }
+
+            50% {
+                transform: translate3d(0, -28px, 60px) rotateX(78deg) rotateY(30deg) scale(1.08);
+            }
+        }
+
+        @keyframes ring-spin {
+            from {
+                transform: rotateX(72deg) rotateY(0deg) rotateZ(0deg);
+            }
+
+            to {
+                transform: rotateX(72deg) rotateY(360deg) rotateZ(360deg);
+            }
+        }
+
+        @keyframes grid-drift {
+            from {
+                background-position: 0 0, 0 0;
+                transform: translateZ(-340px) rotateX(74deg) rotateY(-14deg) rotateZ(-8deg) translateY(0);
+            }
+
+            to {
+                background-position: 88px 88px, -88px -88px;
+                transform: translateZ(-340px) rotateX(74deg) rotateY(-14deg) rotateZ(-8deg) translateY(36px);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .bg-orb,
+            .bg-ring,
+            .bg-grid,
+            body::before,
+            .brand-mark,
+            .hero-main::after,
+            h1 {
+                animation: none !important;
+            }
         }
 
         body::before {
@@ -54,15 +196,52 @@
             position: fixed;
             inset: 0;
             pointer-events: none;
-            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 56px 56px;
-            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), transparent 88%);
+            background-image: linear-gradient(rgba(90, 66, 46, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(90, 66, 46, 0.03) 1px, transparent 1px);
+            background-size: 64px 64px;
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.28), transparent 88%);
+            animation: grid-shift 22s linear infinite;
+        }
+
+        @keyframes grid-shift {
+            from {
+                background-position: 0 0;
+            }
+
+            to {
+                background-position: 56px 56px;
+            }
+        }
+
+        @keyframes glow-pulse {
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.72;
+            }
+
+            50% {
+                transform: scale(1.08);
+                opacity: 1;
+            }
+        }
+
+        @keyframes float-up {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
         }
 
         .page {
             width: min(1120px, calc(100% - 32px));
             margin: 0 auto;
             padding: 28px 0 56px;
+            position: relative;
+            z-index: 1;
         }
 
         .topbar {
@@ -82,16 +261,37 @@
         }
 
         .brand-mark {
-            width: 44px;
-            height: 44px;
-            border-radius: 14px;
+            width: 54px;
+            height: 54px;
+            border-radius: 18px;
             display: grid;
             place-items: center;
-            background: linear-gradient(135deg, var(--accent), var(--accent-2));
-            color: #06111f;
+            background:
+                radial-gradient(circle at 30% 28%, rgba(255, 255, 255, 0.50), transparent 24%),
+                linear-gradient(145deg, #d46a3f 0%, #247c8a 55%, #4a8f6b 100%);
+            color: #fff9f3;
             font-family: "Space Grotesk", sans-serif;
-            font-weight: 700;
+            font-weight: 800;
+            font-size: 1.05rem;
+            letter-spacing: 0.08em;
             box-shadow: var(--shadow);
+            animation: glow-pulse 3.8s ease-in-out infinite;
+            position: relative;
+            isolation: isolate;
+        }
+
+        .brand-mark::before,
+        .brand-mark::after {
+            content: "";
+            position: absolute;
+            inset: 7px;
+            border-radius: inherit;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+        }
+
+        .brand-mark::after {
+            inset: 12px;
+            border-color: rgba(255, 249, 243, 0.20);
         }
 
         .brand-text strong {
@@ -105,6 +305,16 @@
             font-size: 0.92rem;
         }
 
+        .brand-text em {
+            display: block;
+            margin-top: 2px;
+            color: rgba(101, 88, 78, 0.82);
+            font-style: normal;
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
         .nav {
             display: flex;
             flex-wrap: wrap;
@@ -113,7 +323,7 @@
         }
 
         .nav a {
-            color: var(--muted);
+            color: var(--text);
             text-decoration: none;
             padding: 10px 14px;
             border: 1px solid transparent;
@@ -124,7 +334,7 @@
         .nav a:hover {
             color: var(--text);
             border-color: var(--border);
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(255, 255, 255, 0.62);
         }
 
         .hero {
@@ -136,7 +346,7 @@
         }
 
         .panel {
-            background: var(--card);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 250, 243, 0.58)), var(--card);
             border: 1px solid var(--border);
             border-radius: 28px;
             box-shadow: var(--shadow);
@@ -156,7 +366,8 @@
             top: -60px;
             width: 220px;
             height: 220px;
-            background: radial-gradient(circle, rgba(77, 208, 225, 0.18), transparent 68%);
+            background: radial-gradient(circle, rgba(212, 106, 63, 0.20), transparent 68%);
+            animation: glow-pulse 6s ease-in-out infinite;
         }
 
         .eyebrow {
@@ -165,7 +376,7 @@
             gap: 8px;
             padding: 8px 14px;
             border-radius: 999px;
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(212, 106, 63, 0.10);
             color: var(--accent);
             font-weight: 700;
             letter-spacing: 0.08em;
@@ -217,14 +428,14 @@
         }
 
         .button.primary {
-            color: #06111f;
-            background: linear-gradient(135deg, var(--accent), #9de7ef);
+            color: #fffaf5;
+            background: linear-gradient(135deg, var(--accent), var(--accent-4));
         }
 
         .button.secondary {
             color: var(--text);
-            border: 1px solid var(--border);
-            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(74, 58, 46, 0.16);
+            background: linear-gradient(135deg, rgba(36, 124, 138, 0.10), rgba(74, 143, 107, 0.10));
         }
 
         .hero-stats {
@@ -236,8 +447,8 @@
         .stat {
             padding: 16px;
             border-radius: 20px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: linear-gradient(135deg, rgba(212, 106, 63, 0.10), rgba(36, 124, 138, 0.08));
+            border: 1px solid rgba(74, 58, 46, 0.10);
         }
 
         .stat strong {
@@ -261,8 +472,8 @@
         .profile-card {
             padding: 22px;
             border-radius: 24px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: linear-gradient(180deg, rgba(212, 106, 63, 0.10), rgba(36, 124, 138, 0.06));
+            border: 1px solid rgba(74, 58, 46, 0.10);
         }
 
         .profile-name {
@@ -289,7 +500,7 @@
             justify-content: space-between;
             gap: 12px;
             padding-bottom: 12px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(74, 58, 46, 0.10);
             color: var(--muted);
         }
 
@@ -351,8 +562,8 @@
         .tag-list li {
             padding: 10px 14px;
             border-radius: 999px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: linear-gradient(135deg, rgba(212, 106, 63, 0.12), rgba(36, 124, 138, 0.10), rgba(74, 143, 107, 0.10));
+            border: 1px solid rgba(74, 58, 46, 0.10);
             color: var(--text);
             font-weight: 600;
         }
@@ -366,8 +577,8 @@
         .project {
             padding: 18px;
             border-radius: 20px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: linear-gradient(135deg, rgba(225, 170, 67, 0.12), rgba(36, 124, 138, 0.08));
+            border: 1px solid rgba(74, 58, 46, 0.10);
         }
 
         .project h3 {
@@ -392,8 +603,8 @@
         .timeline-item {
             padding: 18px;
             border-radius: 20px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: linear-gradient(135deg, rgba(74, 143, 107, 0.10), rgba(212, 106, 63, 0.08));
+            border: 1px solid rgba(74, 58, 46, 0.10);
         }
 
         .timeline-item strong {
@@ -412,8 +623,54 @@
         .contact-item {
             padding: 18px;
             border-radius: 20px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: linear-gradient(135deg, rgba(36, 124, 138, 0.10), rgba(212, 106, 63, 0.08));
+            border: 1px solid rgba(74, 58, 46, 0.10);
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text);
+            text-decoration: none;
+            min-height: 100%;
+        }
+
+        .contact-link:hover .contact-link-value {
+            text-decoration: underline;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            flex: 0 0 40px;
+            border-radius: 14px;
+            display: inline-grid;
+            place-items: center;
+            background: linear-gradient(135deg, rgba(212, 106, 63, 0.16), rgba(36, 124, 138, 0.12));
+            border: 1px solid rgba(74, 58, 46, 0.10);
+            color: var(--accent);
+        }
+
+        .contact-link-text {
+            min-width: 0;
+        }
+
+        .contact-link-label {
+            display: block;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.78rem;
+        }
+
+        .contact-link-value {
+            display: block;
+            color: var(--text);
+            text-decoration: none;
+            word-break: break-word;
         }
 
         .contact-item span {
@@ -438,6 +695,12 @@
             margin-top: 18px;
             color: var(--muted);
             font-size: 0.95rem;
+        }
+
+        .hero-main,
+        .hero-side,
+        .section {
+            border-radius: 32px;
         }
 
         @media (max-width: 960px) {
@@ -482,6 +745,7 @@
             }
 
             h1 {
+                animation: float-up 7s ease-in-out infinite;
                 font-size: 2.3rem;
             }
 
@@ -494,16 +758,30 @@
                 flex-direction: column;
             }
         }
+
+        @media (max-width: 960px) {
+            .page {
+                width: min(100% - 24px, 1120px);
+            }
+        }
     </style>
-     <li>java</li>
 <body>
+    <div class="background-3d" aria-hidden="true">
+        <div class="bg-grid"></div>
+        <div class="bg-ring one"></div>
+        <div class="bg-ring two"></div>
+        <div class="bg-orb one"></div>
+        <div class="bg-orb two"></div>
+        <div class="bg-orb three"></div>
+    </div>
     <div class="page">
         <header class="topbar">
             <a class="brand" href="#home" aria-label="Anil portfolio home">
-                <div class="brand-mark">A</div>
+                <div class="brand-mark" aria-hidden="true">AR</div>
                 <div class="brand-text">
                     <strong>Anil</strong>
                     <span>B.Tech AIDS | Full Stack Developer</span>
+                    <em>Resume Logo</em>
                 </div>
             </a>
             <nav class="nav" aria-label="Primary">
@@ -550,7 +828,7 @@
                         <div class="profile-role">B.Tech AIDS | Mother Theresa College</div>
                         <ul class="profile-list">
                             <li><strong>Focus</strong><span>Full Stack Development</span></li>
-                            <li><strong>Languages</strong><span>Java, Python, C++</span></li>
+                            <li><strong>Languages</strong><span>Java, Python, C</span></li>
                             <li><strong>Interests</strong><span>UI, APIs, Databases</span></li>
                             <li><strong>Goal</strong><span>Build scalable web apps</span></li>
                         </ul>
@@ -584,7 +862,7 @@
                         <li>JavaScript</li>
                         <li>Java</li>
                         <li>Python</li>
-                        <li>C++</li>
+                        <li>C</li>
                         <li>MySQL</li>
                         <li>Git & GitHub</li>
                     </ul>
@@ -626,6 +904,14 @@
                             <p>Currently in 3rd year, focused on software development and problem solving.</p>
                         </div>
                         <div class="timeline-item">
+                            <strong>Intermediate</strong>
+                            <p>Narayana Junior College, Tirupati</p>
+                        </div>
+                        <div class="timeline-item">
+                            <strong>10th Class</strong>
+                            <p>ZP High School, Gonaumakulapalle</p>
+                        </div>
+                        <div class="timeline-item">
                             <strong>Learning Path</strong>
                             <p>Frontend development, backend fundamentals, and data structures.</p>
                         </div>
@@ -639,24 +925,77 @@
                     </p>
                     <div class="contact-card">
                         <div class="contact-item">
-                            <span>Name</span>
-                            <p>Anil</p>
+                            <a class="contact-link" href="mailto:anilreddy2758@gmail.com">
+                                <span class="contact-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M4 6h16v12H4z"></path>
+                                        <path d="m4 7 8 6 8-6"></path>
+                                    </svg>
+                                </span>
+                                <span class="contact-link-text">
+                                    <span class="contact-link-label">Email</span>
+                                    <span class="contact-link-value">anilreddy2758@gmail.com</span>
+                                </span>
+                            </a>
                         </div>
                         <div class="contact-item">
-                            <span>College</span>
-                            <p>Mother Theresa College</p>
+                            <a class="contact-link" href="https://github.com/" target="_blank" rel="noreferrer">
+                                <span class="contact-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M9 19c-4.5 1.5-4.5-2.5-6-3"></path>
+                                        <path d="M15 22v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.7-1.4 5.7-6.3 0-1.4-.5-2.7-1.4-3.8.1-.3.6-1.7-.1-3.5 0 0-1.1-.3-3.6 1.4a12.4 12.4 0 0 0-6.5 0C6.1 3.1 5 3.4 5 3.4c-.7 1.8-.2 3.2-.1 3.5-.9 1.1-1.4 2.4-1.4 3.8 0 4.9 2.9 6 5.7 6.3-.4.4-.5.9-.5 1.7V22"></path>
+                                        <path d="M9 18c-4 1-4-2-5-2"></path>
+                                    </svg>
+                                </span>
+                                <span class="contact-link-text">
+                                    <span class="contact-link-label">GitHub</span>
+                                    <span class="contact-link-value">github.com</span>
+                                </span>
+                            </a>
                         </div>
                         <div class="contact-item">
-                            <span>Email</span>
-                            <a href="mailto:anil@example.com">anil@example.com</a>
+                            <a class="contact-link" href="https://www.linkedin.com/feed/" target="_blank" rel="noreferrer">
+                                <span class="contact-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                                        <path d="M6.94 6.5A1.94 1.94 0 1 1 3.06 6.5a1.94 1.94 0 0 1 3.88 0ZM3.5 9h3V21h-3V9Zm5.5 0h2.88v1.64h.04c.4-.76 1.38-1.56 2.84-1.56C17.8 9.08 19 10.7 19 13.2V21h-3v-6.65c0-1.58-.03-3.62-2.21-3.62-2.22 0-2.56 1.73-2.56 3.51V21H9V9Z"></path>
+                                    </svg>
+                                </span>
+                                <span class="contact-link-text">
+                                    <span class="contact-link-label">LinkedIn</span>
+                                    <span class="contact-link-value">linkedin.com</span>
+                                </span>
+                            </a>
                         </div>
                         <div class="contact-item">
-                            <span>Location</span>
-                            <p>Available for remote and local opportunities</p>
+                            <a class="contact-link" href="tel:8074083115">
+                                <span class="contact-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h2a1 1 0 0 1 1 .76l.8 3.2a1 1 0 0 1-.27.95L8.7 9.26a13.5 13.5 0 0 0 5.98 5.98l1.35-1.33a1 1 0 0 1 .95-.27l3.2.8a1 1 0 0 1 .76 1v2A2.5 2.5 0 0 1 18.5 21h-1C9.7 21 3 14.3 3 6.5v-1Z"></path>
+                                    </svg>
+                                </span>
+                                <span class="contact-link-text">
+                                    <span class="contact-link-label">Mobile</span>
+                                    <span class="contact-link-value">8074083115</span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-link">
+                                <span class="contact-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 21s6-4.35 6-10a6 6 0 1 0-12 0c0 5.65 6 10 6 10Z"></path>
+                                        <circle cx="12" cy="11" r="2.2"></circle>
+                                    </svg>
+                                </span>
+                                <span class="contact-link-text">
+                                    <span class="contact-link-label">Village</span>
+                                    <span class="contact-link-value">T.Banadapille</span>
+                                </span>
+                            </div>
                         </div>
                     </div>
                     <p class="footer-note">
-                        Replace the sample email and location with your real details if you want to publish this portfolio.
+                        Contact details updated with your email, mobile number, and village name.
                     </p>
                 </article>
             </section>
